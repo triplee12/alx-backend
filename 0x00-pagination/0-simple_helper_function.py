@@ -13,6 +13,14 @@ def index_range(page: int, page_size: int) -> tuple:
     Returns:
         tuple: the index of the page and the size of the page
     """
-    if page == 1:
-        return (0, page_size)
-    return (page * 10, page * page_size)
+    if page <= 0 or page_size <= 0:
+        raise ValueError(
+            "Both page and page_size must be positive integers."
+        )
+
+    # Adjusting the start index for 1-indexed pages
+    start_index: int = (page - 1) * page_size
+
+    # Calculating the end index based on the start index and page size
+    end_index: int = start_index + page_size
+    return (start_index, end_index)
