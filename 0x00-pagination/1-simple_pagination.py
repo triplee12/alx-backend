@@ -41,10 +41,10 @@ class Server:
             )
 
         # Adjusting the start index for 1-indexed pages
-        start_index = (page - 1) * page_size
+        start_index: int = (page - 1) * page_size
 
         # Calculating the end index based on the start index and page size
-        end_index = start_index + page_size
+        end_index: int = start_index + page_size
         return (start_index, end_index)
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
@@ -60,8 +60,8 @@ class Server:
         """
         assert isinstance(page, int) and isinstance(page_size, int) > 0
         assert page > 0 and page_size > 0
-        data = self.dataset()
-        index = self.index_range(page=page, page_size=page_size)
+        data: List[List] = self.dataset()
+        index: tuple = self.index_range(page=page, page_size=page_size)
 
         if page_size < len(data):
             return data[index[0]:index[1]]
