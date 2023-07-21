@@ -66,7 +66,7 @@ class Server:
         if page_size < len(data):
             return data[index[0]:index[1]]
         return []
-    
+
     def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
         Hypermedia pagination.
@@ -80,7 +80,6 @@ class Server:
         """
         data: List[List] = self.get_page(page, page_size)
         total_pages: int = len(self.dataset()) // page_size
-        print(total_pages)
 
         # check if data is empty
         if len(data) == 0:
