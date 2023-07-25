@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 """FIFO caching."""
 
-from collections import deque
-
 BaseCaching = __import__("base_caching").BaseCaching
 
 
